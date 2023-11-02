@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useEffect, useRef, useState } from "react";
 import Image, { StaticImageData } from "next/image";
@@ -75,15 +75,15 @@ export function FancyTestimonalSliderItem({
       {/* Image */}
       <div className="relative h-32">
         <div
-          className="absolute inset-0 left-1/2 -translate-x-1/2 before:absolute h-[480px]
-          w-[480px] before:bg-gradient-to-b before:from-indigo-500/25 before:via-indigo-500/5 via-20%
-          before:to-indigo-500/0 to-25% rounded-full"
+          className="absolute top-0 left-1/2 -translate-x-1/2 h-[480px] w-[480px] pointer-events-none
+          before:absolute before:bg-gradient-to-b before:from-indigo-500/25 before:via-indigo-500/5 via-20%
+          before:to-indigo-500/0 to-25% rounded-full -z-10"
         >
           {testimonials.map((testimonial, index) => (
             <Transition
               key={index}
               show={active === index}
-              className="absolute inset-0 h"
+              className="absolute inset-0 h-full -z-10"
               enter="transition ease-[cubic-bezier(0, -0.3,0.3,1)] duration-700 order-first"
               enterFrom="opacity-0 -rotate-[60deg]"
               enterTo="opacity-100 rotate-0"
@@ -130,6 +130,7 @@ export function FancyTestimonalSliderItem({
           ))}
         </div>
       </div>
+      {/* Buttons */}
       <div className="flex justify-center flex-wrap -m-1.5">
         {testimonials.map((testimonial, index) => (
           <button
